@@ -1,15 +1,46 @@
+import { ACCOUNT_UPDATE, CONTRACT_LOADED, DATA_LOADED, RATE, SEAPORT, THEME_TOGGLER } from "../constants/action-types";
 
-import * as actions from "../actions";
-import { combineReducers } from "redux";
 
-const preferences = (state = { darkThemeEnabled: false }, action) => {
-  switch (action.type) {
-    case actions.TOGGLE_DARKTHEME:
-      return { ...state, darkThemeEnabled: !state.darkThemeEnabled };
 
-    default:
-      return state;
-  }
+const initialState = {
+  account: null,
+  blockchainClient: null,
+  mydata: null,
+  theem: false,
+  darkThemeEnabled:false
 };
 
-export default combineReducers({ preferences });
+function rootReducer(state = initialState, action) {
+  // console.log(action, "action")
+
+  switch (action.type) {
+    case ACCOUNT_UPDATE:
+      return Object.assign({}, state, {
+        account: action.payload
+      });
+    case CONTRACT_LOADED:
+      return Object.assign({}, state, {
+        contract: action.payload
+      });
+    case DATA_LOADED:
+      return Object.assign({}, state, {
+        mydata: action.payload
+      });
+    case RATE:
+      return Object.assign({}, state, {
+        rate: action.payload
+      });
+      case THEME_TOGGLER:
+        localStorage.setItem("theme", !state.darkThemeEnabled)
+        return Object.assign({}, state,{
+          darkThemeEnabled:!state.darkThemeEnabled
+        })
+  }
+
+
+
+  // console.log(state, "action")
+  return state;
+};
+
+export default rootReducer;

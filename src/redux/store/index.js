@@ -1,32 +1,6 @@
-
-// import { createStore } from "redux";
-// import rootReducer from "../reducer";
-
-// let initialState = {};
-
-// const store = createStore(rootReducer, initialState);
-// export default store;
-
-
-
-
 import { createStore } from "redux";
-import rootReducer from "../reducer";
+import rootReducer from "../../redux/reducer";
 
-const localStorageKey = "theme";
-const persistedTheme = localStorage.getItem(localStorageKey);
-
-let initialState = {
- // preferences: persistedTheme ? JSON.parse(persistedTheme) : {},
-};
-
-const store = createStore(rootReducer, initialState);
-
-store.subscribe(() => {
-  const preferences = store.getState().preferences;
-  if (!preferences) return;
-
-  localStorage.setItem(localStorageKey, JSON.stringify(preferences));
-});
+const store = createStore(rootReducer);
 
 export default store;

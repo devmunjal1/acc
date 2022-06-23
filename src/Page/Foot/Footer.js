@@ -1,226 +1,271 @@
-import React from 'react'
-import styled from 'styled-components'
-import './Footer.css'
-import bg from './foot.png'
+import React from "react";
+import styled from "styled-components";
+import "./Footer.css";
+import bg from "./foot.png";
 import { Link, animateScroll as scroll } from "react-scroll";
-import { Image } from '../../components/Navbar/Navbar'
-import dis from '../../components/Navbar/Discord.png'
-import twi from '../../components/Navbar/Twitter.png'
-import med from '../../components/Navbar/Medium.png'
-import logo from '../../components/Navbar/logo.svg'
-import { Button } from '../../components/Navbar/Navbar';
-import Page6 from '../Page6/Page6';
+import { Image } from "../../components/Navbar/Navbar";
+import dis from "../../components/Navbar/Discord.png";
+import twi from "../../components/Navbar/Twitter.png";
+import med from "../../components/Navbar/Medium.png";
+import logo from "../../components/Navbar/logo.svg";
+import { Button } from "../../components/Navbar/Navbar";
+import Page6 from "../Page6/Page6";
 
 const Sec = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    background: rgba(0, 29, 35, 1);
-    padding: 2rem 0 1rem 0;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 29, 35, 1);
+  padding: 2rem 0 1rem 0;
+`;
 
 const StyledFooter = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    flex-direction: column;
-    width: 1600px;
-    
-    @media only screen and (max-width: 1600px) {
-        width: 99%;
-    }
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1600px;
+
+  @media only screen and (max-width: 1600px) {
+    width: 99%;
+  }
+`;
 const IconContainer = styled.div`
   margin: 0 3rem 0 0;
-`
+`;
 const Left = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    flex-direction: column;
-    margin: 8rem 0;
-    
-    @media only screen and (max-width: 610px) {
-        width: 99%;
-        padding: 0 2rem;
-    }
-`
-const Mid = styled.div`
-    display: flex;
-    width: 998px;
-    justify-content: space-between;
-    padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 8rem 0;
 
-    @media only screen and (max-width: 1100px) {
-        width: 90%;
-       
-        
-    }
-    @media only screen and (max-width: 610px) {
-        width: 99%;
-       
-        
-    }
-`
+  @media only screen and (max-width: 610px) {
+    width: 99%;
+    padding: 0 2rem;
+  }
+`;
+const Mid = styled.div`
+  display: flex;
+  width: 998px;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+
+  @media only screen and (max-width: 1100px) {
+    width: 90%;
+  }
+  @media only screen and (max-width: 610px) {
+    width: 99%;
+  }
+`;
 
 const Right = styled.div`
-    display: flex;
-    width: 30rem;
-    justify-content: center;
-    align-items:center;
-    flex-direction: column;
- 
-    @media only screen and (max-width: 610px) {
-        width: 99%;
-        padding: 2rem 0;
-    }
-`
+  display: flex;
+  width: 30rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media only screen and (max-width: 610px) {
+    width: 99%;
+    padding: 2rem 0;
+  }
+`;
 const Link1 = styled(Link)`
-    
- 
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   font-size: 3.5rem;
-   color: rgba(249,232,202,0.9);
-    @media only screen and (max-width: 998px) {
-        margin-right: 6rem  !important;
-        width: 16rem;
-        height: auto;
-    }
-    @media only screen and (max-width: 768px) {
-       // margin-right: 3rem  !important;
-        width: 10rem;
-        font-size: 1.5rem;
-    }
-    `
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 3.5rem;
+  color: rgba(249, 232, 202, 0.9);
+  @media only screen and (max-width: 998px) {
+    margin-right: 6rem !important;
+    width: 16rem;
+    height: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    // margin-right: 3rem  !important;
+    width: 10rem;
+    font-size: 1.5rem;
+  }
+`;
 const Upper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-    //place-items: center;
-    width: 100%;
-    // grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    // padding: 0 0 0 2rem;
-    
-    @media only screen and (max-width: 610px) {
-        grid-template-columns: repeat(auto-fit, minmax(99%, 1fr));
-        padding: 0 0 ;
-    }
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  //place-items: center;
+  width: 100%;
+  // grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  // padding: 0 0 0 2rem;
+
+  @media only screen and (max-width: 610px) {
+    grid-template-columns: repeat(auto-fit, minmax(99%, 1fr));
+    padding: 0 0;
+  }
+`;
 
 const Line = styled.div`
-    width: 100%;
-    height: 1px;
-    background: rgba(255,255,255,0.6);
-    margin: 2rem 0;
-`
-
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 2rem 0;
+`;
 
 const Lower = styled.div`
-     background-color: rgba(1, 23, 28, 1);
-     width: 1400px;
-     display: flex;
-     justify-content:space-between;
-    align-items:center;
-    padding: 0.5rem 1.5rem;
-    margin: 4rem 0 1rem 0;
-    @media only screen and (max-width: 1400px) {
-        width: 98%;
-    }
-    @media only screen and (max-width: 610px) {
-        width: 99%;
-        flex-direction: column;
-        padding: 2rem 0.5rem;
-    }
-`
+  background-color: rgba(1, 23, 28, 1);
+  width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  margin: 4rem 0 1rem 0;
+  @media only screen and (max-width: 1400px) {
+    width: 98%;
+  }
+  @media only screen and (max-width: 610px) {
+    width: 99%;
+    flex-direction: column;
+    padding: 2rem 0.5rem;
+  }
+`;
 const SocialMedia = styled.div`
-    @media only screen and (max-width: 610px) {
-        margin: 1rem 0 0 0;
-    }
-`
-
+  @media only screen and (max-width: 610px) {
+    margin: 1rem 0 0 0;
+  }
+`;
 
 export const T = styled.p`
-    color: #FFF;
-    font-weight: 500;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  // margin-bottom: 2rem;
+  text-align: left;
+  // font-weight: bold;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  @media only screen and (max-width: 768px) {
+    font-weight: 510;
     font-size: 1rem;
-   // margin-bottom: 2rem;
-    text-align: left;
-     // font-weight: bold;
-      letter-spacing: 0.05rem;
-      line-height: 1.5;
-    @media only screen and (max-width: 768px) {
-        font-weight: 510;
-        font-size: 1rem;
-       
-      }
+  }
 `;
 
 export const H = styled.h1`
-    color: #FFF;
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 0 2rem 0 0;
-    text-align: left !important;
-    @media only screen and (max-width: 768px) {
-        font-weight: 510;
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0 2rem 0 0;
+  text-align: left !important;
+  @media only screen and (max-width: 768px) {
+    font-weight: 510;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 `;
 
-
 const Footer = () => {
-    return (
-        <Sec>
-        <StyledFooter >
+  return (
+    <Sec>
+      <StyledFooter>
+        {/* <Page6 /> */}
 
-            <Page6 />
-    
-            <Upper>
-    
-                <Left>
-                    <H style={{}}>Ready to take control of your financial future?</H>
-                    <Button style={{color:'#fff',border:'1px solid #fff',margin:'3rem 0 0 0'}}>
-                    Download Accredited
-                    <div style={{margin:'0.2rem 0 0 1rem'}}>
-                        <svg  width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.13924 14L0 12.9781L6.72152 6.99999L0 1.0219L1.13924 0L9 6.99999L1.13924 14Z" fill="white"/>
-                        </svg>
-                    </div>
-                    </Button>
-                   
-                </Left>
-    
-                <Mid>
-                    <div style={{margin:'2rem 0 0 0'}}>
-                        <img src='' alt='' style={{width:'8rem',height:'4rem'}} />
-                    </div>
-                   
-                    <div  style={{margin:'2rem 0 0 0'}}>
-                        
-                        <T style={{color:'rgba(153, 156, 165, 1)',margin:'0',fontSize:'1rem',fontWeight:'400'}}>Asset Structuring</T>
-                        <T style={{color:'rgba(153, 156, 165, 1)',margin:'0',fontSize:'1rem',fontWeight:'400'}}>Transfer Agent</T>
-                        <T style={{color:'rgba(153, 156, 165, 1)',margin:'0',fontSize:'1rem',fontWeight:'400'}}>Real Estate Tokenization</T>
-                        <T style={{color:'rgba(153, 156, 165, 1)',margin:'0',fontSize:'1rem',fontWeight:'400'}}>HNI’s & Family Offices</T>
+        <Upper>
+          <Left>
+            <H style={{}}>Ready to take control of your financial future?</H>
+            <Button
+              style={{
+                color: "#fff",
+                border: "1px solid #fff",
+                margin: "3rem 0 0 0",
+              }}
+            >
+              Download Accredited
+              <div style={{ margin: "0.2rem 0 0 1rem" }}>
+                <svg
+                  width="9"
+                  height="14"
+                  viewBox="0 0 9 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.13924 14L0 12.9781L6.72152 6.99999L0 1.0219L1.13924 0L9 6.99999L1.13924 14Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </Button>
+          </Left>
 
-                    </div>
+          <Mid>
+            <div style={{ margin: "2rem 0 0 0" }}>
+              <img src="" alt="" style={{ width: "8rem", height: "4rem" }} />
+            </div>
 
-                    <div  style={{margin:'2rem 0 0 0'}}>
-                    <Button style={{color:'#fff',border:'1px solid #fff'}}>
-                    Token Offering
-                    <div style={{margin:'0.2rem 0 0 1rem'}}>
-                        <svg  width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.13924 14L0 12.9781L6.72152 6.99999L0 1.0219L1.13924 0L9 6.99999L1.13924 14Z" fill="white"/>
-                        </svg>
-                    </div>
-                    </Button>
-                    </div>
-                </Mid>
-    
-                {/* <Right>
+            <div style={{ margin: "2rem 0 0 0" }}>
+              <T
+                style={{
+                  color: "rgba(153, 156, 165, 1)",
+                  margin: "0",
+                  fontSize: "1rem",
+                  fontWeight: "400",
+                }}
+              >
+                Asset Structuring
+              </T>
+              <T
+                style={{
+                  color: "rgba(153, 156, 165, 1)",
+                  margin: "0",
+                  fontSize: "1rem",
+                  fontWeight: "400",
+                }}
+              >
+                Transfer Agent
+              </T>
+              <T
+                style={{
+                  color: "rgba(153, 156, 165, 1)",
+                  margin: "0",
+                  fontSize: "1rem",
+                  fontWeight: "400",
+                }}
+              >
+                Real Estate Tokenization
+              </T>
+              <T
+                style={{
+                  color: "rgba(153, 156, 165, 1)",
+                  margin: "0",
+                  fontSize: "1rem",
+                  fontWeight: "400",
+                }}
+              >
+                HNI’s & Family Offices
+              </T>
+            </div>
+
+            <div style={{ margin: "2rem 0 0 0" }}>
+              <Button style={{ color: "#fff", border: "1px solid #fff" }}>
+                Token Offering
+                <div style={{ margin: "0.2rem 0 0 1rem" }}>
+                  <svg
+                    width="9"
+                    height="14"
+                    viewBox="0 0 9 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.13924 14L0 12.9781L6.72152 6.99999L0 1.0219L1.13924 0L9 6.99999L1.13924 14Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+              </Button>
+            </div>
+          </Mid>
+
+          {/* <Right>
                     <H style={{fontSize:'1.6rem',fontWeight:'500'}}>Contact</H>
                     <div style={{display:'flex'}}>
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,21 +307,29 @@ const Footer = () => {
     
                     </div>
                 </Right> */}
-    
-            </Upper>
-            
-            <Line />
-    
-            <div style={{padding:'0 1rem '}}>
-              <H style={{margin:'0 0 1rem 0',color:' rgba(249,232,202,0.9)'}}>
-              Disclaimer:</H>
-              <T style={{color:' rgba(249,232,202,0.7)'}} >
-                The Information provided on this website does not constitute investment advice, financial advice, trading advice, or any other sort of advice, and you should not treat any of the website's content as such. The DONOR team provides the website as a service to the public, and is not resonsible for, and expressly disclaims all liabilty for, damages of any kind arising out of use, reference to, or reliance on any information contained within this website. While the information contained within this website is periodically updated, no quarantee is given that the information provided in this webiste is correct, complete and up-to-date.
-              </T>
-    
-            </div>
-    
-            {/* <Lower>
+        </Upper>
+
+        <Line />
+
+        <div style={{ padding: "0 1rem " }}>
+          <H style={{ margin: "0 0 1rem 0", color: " rgba(249,232,202,0.9)" }}>
+            Disclaimer:
+          </H>
+          <T style={{ color: " rgba(249,232,202,0.7)" }}>
+            The Information provided on this website does not constitute
+            investment advice, financial advice, trading advice, or any other
+            sort of advice, and you should not treat any of the website's
+            content as such. The DONOR team provides the website as a service to
+            the public, and is not resonsible for, and expressly disclaims all
+            liabilty for, damages of any kind arising out of use, reference to,
+            or reliance on any information contained within this website. While
+            the information contained within this website is periodically
+            updated, no quarantee is given that the information provided in this
+            webiste is correct, complete and up-to-date.
+          </T>
+        </div>
+
+        {/* <Lower>
                 <div style={{color:'#fff'}}>
                 © 2000-2021,<span style={{color:'rgba(2, 169, 92, 1)'}}> Donor</span>  All Rights Reserved
                 </div>
@@ -303,10 +356,9 @@ const Footer = () => {
     
                 </SocialMedia>
             </Lower> */}
-           
-        </StyledFooter>
-        </Sec>
-    )
-}
+      </StyledFooter>
+    </Sec>
+  );
+};
 
-export default Footer
+export default Footer;

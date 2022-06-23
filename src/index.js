@@ -1,26 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-import { BrowserRouter as Router } from 'react-router-dom'
-import { UseWalletProvider } from 'use-wallet';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import { BrowserRouter as Router } from "react-router-dom";
+import { UseWalletProvider } from "use-wallet";
 
-ReactDOM.render(<Router>
+ReactDOM.render(
+  <Router>
     <Provider store={store}>
-        <UseWalletProvider
-            chainId={1}
-            connectors={{
-              // This is how connectors get configured
-              portis: { dAppId: 'my-dapp-id-123-xyz' },
-            }}        
-        >
-            <App />
-        </UseWalletProvider>
+      <UseWalletProvider
+        chainId={97}
+        connectors={
+          {
+            // This is how connectors get configured
+          }
+        }
+      >
+        <App />
+      </UseWalletProvider>
     </Provider>
-</Router>
-,document.getElementById('root')
+  </Router>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
